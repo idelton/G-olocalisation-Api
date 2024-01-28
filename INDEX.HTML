@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appel geacalisation Api</title>
+</head>
+<body>
+    <script>
+        function getMyPosition() {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    console.log("Position trouvée : Latitude = " + position.coords.latitude + " Longitude = " + position.coords.longitude);
+                    console.log(position.coords);
+                },
+                function(error) {
+                    console.log("Erreur de géoloc N " + error.code + " : " + error.message);
+                    console.log(error);
+                },
+                {
+                    timeout: 2000,
+                    maximumAge: 60000
+                }
+            );
+        }
+    </script>
+    
+</body>
+</html>
